@@ -1,0 +1,65 @@
+﻿<html>
+
+<head>
+
+</head>
+
+<body>
+    <div>
+
+        <div style="width:50%">
+
+            <img src="~/Images/pic.jpg" style="width:1100px;padding-top:75px" />
+
+        </div>
+        <form style="padding-top:50px;border:thin;border-color:black">
+
+            <fieldset style="border:thin;border-color:black">
+                <p>
+                    <font face="courier" size="7" color="#000000">
+                        Cine Suntem ?
+                    </font>
+                </p>
+
+
+                <p>
+                    <font style="font-family: 'Audiowide';" size="4" color="#000000">
+                        SupplementsPlus- expertul tău în atingerea obiectivului mult dorit, masa musculara, scădere în greutate, imbunatatirea performantei fizice si nutriție sănătoasă.
+                        Suntem printre principalele magazine online de suplimente și nutriție sportivă.
+                        Indiferent dacă iti doresti o proteina pentru shake-ul tau de dupa antrenament, un pre-workout pentru o pompare si un boost de energie sau un supliment de slabit pentru a da un randament mai bun inainte de antrenament, noi suntem alegerea potrivita pentru tine.
+                        Dacă doresti să cumperi suplimente pentru sala, vei găsi în magazinul nostru tot ceea ce ti-ai putea dori.
+                        Cu produsele noastre originale obțineți cea mai înaltă calitate la prețuri imbatabile.”
+                    </font>
+                </p>
+
+                <p>
+
+                    <font face="courier" size="7" color="#000000">
+                        Unde ne poti contacta ?
+                    </font>
+
+                </p>
+
+                @Html.ActionLink("Contacteaza-ne !", "Contact", null, new { @class = "btn btn-primary btn-large" })
+                <div style="padding-top:20px">
+
+                    <p>
+
+                        <font face="courier" size="7" color="#000000">
+                            Unde pot vizualiza pagina de produse ?
+                        </font>
+
+                    </p>
+
+                </div>
+                @Html.ActionLink("Pagina Produse", "Products", null, new { @class = "btn btn-primary btn-large" })
+
+            </fieldset>
+
+        </form> 
+        
+    </div>
+
+</body>
+
+</html>

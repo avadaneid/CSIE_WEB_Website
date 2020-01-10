@@ -1,0 +1,113 @@
+﻿@using Model;
+@model COM.Comanda
+
+@{
+    var ProductList = ViewBag.List as IEnumerable<Model.Product>;
+}
+
+<html>
+
+<head>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+</head>
+
+<body>
+
+    <div>
+        @foreach (Product p in ProductList)
+        {
+
+            var result = "data:image/jpeg;base64," + @Convert.ToBase64String(p.PictureR);
+
+            <div style="display:flex;padding-top:200px">
+
+                <div style="width:20%">
+                    <img src="@result" />
+                </div>
+
+                <div style="width:80%;display:flex">
+                    <div style="flex:1">
+                        <p>Nume Produs:</p>
+                        @p.Name
+                    </div>
+
+                    <div style="flex:1">
+                        <p>Pret Produs:</p>
+                        @p.Price
+                    </div>
+
+                    <div style="flex:1">
+                        <p>Cantitate:</p>
+                        <p>1</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+         }
+
+        @using (Html.BeginForm("FinCOM","Home",FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Comanda</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nume, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nume, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nume, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Prenume, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Prenume, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Prenume, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AdresaLivrare, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AdresaLivrare, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AdresaLivrare, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NumarTelefon, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NumarTelefon, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NumarTelefon, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+         }
+
+    </div>
+
+
+
+</body>
+
+</html>
